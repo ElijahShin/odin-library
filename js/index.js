@@ -1,9 +1,13 @@
-function Book(title, author, pages) {
+function Book(title, author, pageNum) {
   this.title = title;
   this.author = author;
-  this.pages = pages;
+  this.pageNum = pageNum;
 }
 
-const theHobbit = new Book("The Hobbit", "J.R.R Tolkien", 295);
+Book.prototype.info = function() {
+  return `${this.title}, by ${this.author}, ${this.pageNum} pages`;
+}
 
-console.log(theHobbit);
+const hobbit = new Book("The Hobbit", "J.R.R Tolkien", 295);
+
+console.log(hobbit.info());
