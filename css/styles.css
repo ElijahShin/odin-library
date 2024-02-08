@@ -1,3 +1,46 @@
-h1 {
-  color: blue;
+* {
+  box-sizing: border-box;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+/* Font styles */
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.title {
+  font-weight: bold;
+}
+
+/* Styles */
+body {
+  height: 100vh;
+}
+
+head {
+
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
+  gap: 12px;
+  
+}
+
+.book-card {
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  justify-content: center;
+  background-color: bisque;
+  padding: 30px;
+}
+
+.book-card p {
+  text-align:center;
+  justify-self: center;
 }
