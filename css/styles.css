@@ -27,6 +27,11 @@ head {
 
 main {
   display: grid;
+  grid-template-rows: 50px 1fr;
+}
+
+.book-catalogue {
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
   gap: 12px;
   
@@ -43,4 +48,11 @@ main {
 .book-card p {
   text-align:center;
   justify-self: center;
+}
+
+form {
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: 1fr 1fr;
+  row-gap: 15px;
 }
