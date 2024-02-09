@@ -13,12 +13,17 @@ Book.prototype.info = function() {
 
 function addBookToLibrary() {
 
-  let title = prompt(`Book Title:`, `LOTR`);
-  let author = prompt(`Book Author:`, `J.R.R Tolkien`);
-  let pages = prompt(`Number of pages:`, 295);
-  let isRead = prompt(`isRead`, false);
+  // let title = prompt(`Book Title:`, `LOTR`);
+  // let author = prompt(`Book Author:`, `J.R.R Tolkien`);
+  // let pages = prompt(`Number of pages:`, 295);
+  // let isRead = prompt(`isRead`, false);
+  
+  let title = document.getElementById(`title`);
+  let author = document.getElementById(`author`);
+  let pages = document.getElementById(`pages`);
+  let isRead = document.getElementById(`read`);
 
-  const newBook = new Book(title, author, pages, isRead);
+  const newBook = new Book(title.value, author.value, pages.value, isRead.value);
   myLibrary.push(newBook);
 }
 
@@ -61,7 +66,7 @@ function closeDialog() {
   
 }
 
-// addBookToLibrary();
+addBookToLibrary();
 // displayBookInfo();
 openDialog();
 closeDialog();
