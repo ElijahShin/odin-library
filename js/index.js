@@ -1,11 +1,4 @@
-const myLibrary = [
-                    {
-                      title: `LOTR`,
-                      author: `J.R.R Tolkien`,
-                      pages: "295",
-                      isRead: false,
-                    }
-                  ];
+const myLibrary = [];
 
 function Book(title, author, pages, isRead) {
   this.title = title;
@@ -30,7 +23,7 @@ function addBookToLibrary() {
 }
 
 function displayBookInfo() {
-  const main = document.querySelector('main');
+  const main = document.querySelector(`.book-catalogue`);
   const bookCard = document.createElement(`div`);
   bookCard.className = `book-card`;
   
@@ -49,6 +42,26 @@ function displayBookInfo() {
   
 }
 
+function openDialog() {
+  const dialog = document.querySelector(`dialog`);
+  const newbookBtn = document.querySelector(`.new-book`);
+  
+  newbookBtn.addEventListener(`click`, event => {
+    dialog.showModal();
+  });
+}
+
+function closeDialog() {
+  const dialog = document.querySelector(`dialog`);
+  const closeBtn = document.querySelector(`form > button:last-child`);
+
+  closeBtn.addEventListener(`click`, event => {
+    dialog.close();
+  });
+  
+}
+
 // addBookToLibrary();
-// console.log(myLibrary);
-displayBookInfo();
+// displayBookInfo();
+openDialog();
+closeDialog();
