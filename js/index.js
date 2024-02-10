@@ -4,20 +4,16 @@ function Book(title, author, pages, isRead) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.isRead = isRead;
+  this.isRead = "Not read";
 }
 
 Book.prototype.info = function() {
   return `${this.title}, by ${this.author}, ${this.pages} pages`;
 }
 
+//Add book to dataset
 function addBookToLibrary() {
 
-  // let title = prompt(`Book Title:`, `LOTR`);
-  // let author = prompt(`Book Author:`, `J.R.R Tolkien`);
-  // let pages = prompt(`Number of pages:`, 295);
-  // let isRead = prompt(`isRead`, false);
-  
   let title = document.getElementById(`title`);
   let author = document.getElementById(`author`);
   let pages = document.getElementById(`pages`);
@@ -27,6 +23,22 @@ function addBookToLibrary() {
   myLibrary.push(newBook);
 }
 
+//Handle adding book ui button functionality
+function addBookBtn() {
+  const dialog = document.querySelector('dialog');
+  const submitBtn = document.querySelector(`button[type="submit"]`);
+
+  submitBtn.addEventListener(`click`, event => {
+
+    event.preventDefault();
+    dialog.close();
+
+    addBookToLibrary();
+    displayBookInfo();
+  });
+}
+
+//Display book info on ui
 function displayBookInfo() {
   const main = document.querySelector(`.book-catalogue`);
   const bookCard = document.createElement(`div`);
@@ -42,11 +54,11 @@ function displayBookInfo() {
     <button class="delete">delete</button>`;
     
   })
-    
   main.appendChild(bookCard);
   
 }
 
+//Open dialog button
 function openDialog() {
   const dialog = document.querySelector(`dialog`);
   const newbookBtn = document.querySelector(`.new-book`);
@@ -56,6 +68,7 @@ function openDialog() {
   });
 }
 
+//Close dialog button
 function closeDialog() {
   const dialog = document.querySelector(`dialog`);
   const closeBtn = document.querySelector(`form > button:last-child`);
@@ -66,7 +79,6 @@ function closeDialog() {
   
 }
 
-addBookToLibrary();
-// displayBookInfo();
+addBookBtn();
 openDialog();
 closeDialog();
