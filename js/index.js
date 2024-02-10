@@ -21,6 +21,11 @@ function addBookToLibrary() {
 
   const newBook = new Book(title.value, author.value, pages.value, isRead.value);
   myLibrary.push(newBook);
+
+  title.value = ``;
+  author.value = ``;
+  pages.value = ``;
+  isRead.value = ``;
 }
 
 //Handle adding book ui button functionality
