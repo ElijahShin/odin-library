@@ -1,10 +1,10 @@
 const myLibrary = [];
 
-function Book(title, author, pages, isRead) {
+function Book(title, author, pages) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.isRead = "Not read";
+  this.read = "Not read";
 }
 
 Book.prototype.info = function() {
@@ -17,15 +17,15 @@ function addBookToLibrary() {
   let title = document.getElementById(`title`);
   let author = document.getElementById(`author`);
   let pages = document.getElementById(`pages`);
-  let isRead = document.getElementById(`read`);
+  let read = document.getElementById(`read`);
 
-  const newBook = new Book(title.value, author.value, pages.value, isRead.value);
+  const newBook = new Book(title.value, author.value, pages.value);
   myLibrary.push(newBook);
 
   title.value = ``;
   author.value = ``;
   pages.value = ``;
-  isRead.value = ``;
+  read.value = ``;
 }
 
 //Handle adding book ui button functionality
@@ -55,12 +55,25 @@ function displayBookInfo() {
     `<p class="title">${ele.title}</p>
     <p class="author">${ele.author}</p>
     <p class="pages">${ele.pages}</p>
-    <button class="isread">${ele.isRead}</button>
+    <button class="read-btn">${ele.read}</button>
     <button class="delete">delete</button>`;
     
   })
   main.appendChild(bookCard);
+  toggleReadBtn();
   
+}
+
+function toggleReadBtn() {
+  const readBtn = document.querySelector(`.read-btn`);
+  
+  readBtn.addEventListener(`click`, event => {
+    if(readBtn !== null) {
+      readBtn.textContent === `Not read` ? readBtn.textContent = `read` : readBtn.textContent = `Not read`;
+    
+    }
+      
+    }); 
 }
 
 //Open dialog button
