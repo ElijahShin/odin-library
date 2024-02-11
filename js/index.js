@@ -95,6 +95,26 @@ function setDialogCheckboxVal() {
     }
 }
 
+function clearBtn() {
+  
+  const resetBtn = document.querySelector(`input[type="reset"]`);
+  
+  resetBtn.addEventListener(`click`, () => {
+
+    let title = document.getElementById(`title`);
+    let author = document.getElementById(`author`);
+    let pages = document.getElementById(`pages`);
+    let read = document.getElementById(`read`);
+    
+    title.value = ``;
+    author.value = ``;
+    pages.value = ``;
+    read.value = ``;
+    
+  });
+
+}
+
 //Open "Add book" dialog button
 function openDialog() {
   const dialog = document.querySelector(`dialog`);
@@ -108,12 +128,15 @@ function openDialog() {
 //Close dialog button
 function closeDialog() {
   const dialog = document.querySelector(`dialog`);
-  const closeBtn = document.querySelector(`form > button:last-child`);
+  const form = document.querySelector(`form`);
 
-  closeBtn.addEventListener(`click`, event => {
-    dialog.close();
+  dialog.addEventListener(`click`, event => {
+    if(event.target == dialog) {
+      console.log(event.target);
+      dialog.close();
+
+    }
   });
-  
 }
 
 openDialog();
