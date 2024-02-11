@@ -4,7 +4,7 @@ function Book(title, author, pages) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.read = "Not read";
+  this.read = setDialogCheckboxVal();
 }
 
 Book.prototype.info = function() {
@@ -71,7 +71,7 @@ function displayBookInfo() {
     <button class="read-btn">${ele.read}</button>
     <button class="remove">Remove</button>`;
     
-  })
+  });
   main.appendChild(bookCard);
 }
 
@@ -80,10 +80,19 @@ function toggleReadBtn() {
   
   container.addEventListener(`click`, event => {
     if(event.target.className === `read-btn`) {
-      event.target.textContent === `Not read` ? event.target.textContent = `read` : event.target.textContent = `Not read`;
-    
+      event.target.textContent === `Not Read` ? event.target.textContent = `Read` : event.target.textContent = `Not Read`;
       }
-    }); 
+
+    });
+}
+
+function setDialogCheckboxVal() {
+    const checkbox = document.getElementById('read');
+    if(checkbox.value === `Not Read`) {
+      return `Not Read`;
+    } else {
+      return `Read`;
+    }
 }
 
 //Open "Add book" dialog button

@@ -12,15 +12,15 @@
     </nav>
   </header>
   <main>
-    <button class="new-book">New Book</button>
+    <button class="new-book">Add Book</button>
     <div class="book-catalogue">
-      <div class="book-card">
+      <!-- <div class="book-card">
         <p class="title">Lord of the Rings, The Fellowship of The Ring</p>
         <p class="author">J.R.R Tolkien</p>
         <p class="pages">295</p>
-        <button class="isread">Read</button>
-        <button class="delete">Delete</button>
-      </div>
+        <button class="read-btn">Read</button>
+        <button class="remove">Remove</button>
+      </div> -->
     </div>
     <dialog>
       <form>
@@ -34,9 +34,9 @@
           <input type="number" id="pages">
           
           <label for="read">Have you read it?</label>
-          <input type="checkbox" id="read">
-          <button type="submit">Submit</button> 
-          <button type="submit">Close</button>
+          <input type="checkbox" id="read" value="Not Read">
+          <button type="submit">Add Book</button> 
+          <button type="reset">Clear</button>
         </form>
     </dialog>
   </main>
