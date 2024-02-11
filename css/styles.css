@@ -53,6 +53,11 @@ main {
 form {
   display: grid;
   grid-template-rows: repeat(5, 1fr);
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   row-gap: 15px;
+}
+
+form > div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
