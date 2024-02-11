@@ -24,17 +24,26 @@
     </div>
     <dialog>
       <form>
+        <div>
           <label for="title">Title:</label>
           <input type="text" id="title" required>
-    
+          <span></span>
+        </div>
+        <div>
           <label for="author">Author</label>
           <input type="text" id="author" required>
-      
-          <label for="pages">Page number</label>
-          <input type="number" id="pages" required>
-          
-          <label for="read">Have you read it?</label>
-          <input type="checkbox" id="read" value="Not Read">
+          <span></span>
+        </div>
+      <div>
+        <label for="pages">Page number</label>
+        <input type="number" id="pages" required>
+        <span></span>
+      </div>
+      <div>
+        <label for="read">Have you read it?</label>
+        <input type="checkbox" id="read" value="Not Read">
+        <span></span>
+      </div>          
           <button type="submit">Add Book</button> 
           <button type="reset">Clear</button>
         </form>
