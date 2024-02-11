@@ -43,40 +43,50 @@ function addBookBtn() {
   });
 }
 
+
+function addRemoveBtn() {
+  const container = document.querySelector(`.book-catalogue`);
+
+  container.addEventListener(`click`, event => {
+    const eTarget = event.target;
+    if(eTarget.className === `remove`) {
+      eTarget.parentElement.remove();
+    }
+  });
+}
+
 //Display book info on ui
 function displayBookInfo() {
   const main = document.querySelector(`.book-catalogue`);
   const bookCard = document.createElement(`div`);
   bookCard.className = `book-card`;
   
-  myLibrary.forEach(ele => {
-
+  
+  myLibrary.forEach((ele, index) => {
+    bookCard.setAttribute(`data-index`, index);
     bookCard.innerHTML = 
     `<p class="title">${ele.title}</p>
     <p class="author">${ele.author}</p>
     <p class="pages">${ele.pages}</p>
     <button class="read-btn">${ele.read}</button>
-    <button class="delete">delete</button>`;
+    <button class="remove">Remove</button>`;
     
   })
   main.appendChild(bookCard);
-  toggleReadBtn();
-  
 }
 
 function toggleReadBtn() {
-  const readBtn = document.querySelector(`.read-btn`);
+  const container = document.querySelector(`.book-catalogue`);
   
-  readBtn.addEventListener(`click`, event => {
-    if(readBtn !== null) {
-      readBtn.textContent === `Not read` ? readBtn.textContent = `read` : readBtn.textContent = `Not read`;
+  container.addEventListener(`click`, event => {
+    if(event.target.className === `read-btn`) {
+      event.target.textContent === `Not read` ? event.target.textContent = `read` : event.target.textContent = `Not read`;
     
-    }
-      
+      }
     }); 
 }
 
-//Open dialog button
+//Open "Add book" dialog button
 function openDialog() {
   const dialog = document.querySelector(`dialog`);
   const newbookBtn = document.querySelector(`.new-book`);
@@ -97,6 +107,8 @@ function closeDialog() {
   
 }
 
-addBookBtn();
 openDialog();
 closeDialog();
+addBookBtn();
+addRemoveBtn();
+toggleReadBtn();
