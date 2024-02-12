@@ -1,4 +1,4 @@
-const myLibrary = [];
+let myLibrary = [];
 
 function Book(title, author, pages) {
   this.title = title;
@@ -43,15 +43,32 @@ function addBookBtn() {
   });
 }
 
+function removeBookFromLibrary(cardIndex) {
+  myLibrary = myLibrary.toSpliced(cardIndex, 1);
+  console.log(`index: ${cardIndex}`);
+
+}
 
 function addRemoveBtn() {
   const container = document.querySelector(`.book-catalogue`);
 
   container.addEventListener(`click`, event => {
     const eTarget = event.target;
+    const cardIndex = eTarget.parentElement.dataset.index;
+
     if(eTarget.className === `remove`) {
       eTarget.parentElement.remove();
+      updateCardIndexOnRemove();
+      removeBookFromLibrary(cardIndex);
     }
+  });
+}
+
+function updateCardIndexOnRemove() {
+  const bookCardList = document.querySelectorAll('.book-card');
+  bookCardList.forEach((ele, i) => {
+    ele.dataset.index = i;
+    // console.log(`Card index: ${ele.dataset.index}`);
   });
 }
 
